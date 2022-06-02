@@ -67,23 +67,20 @@ describe('Validation of login data', () => {
   })
 
   test('Redirect to Home Page with valid data', async () => {
-    const checkVals = jest.fn();
+
     const LoginInputField = screen.getByLabelText('Login');
     const PasswordInputField = screen.getByLabelText('Password');
 
-    // fireEvent.change(LoginInputField, { target: { innerText: "Jane Doe" } })
-    // fireEvent.change(PasswordInputField, { target: { innerText: "adm1n" } })
     userEvent.type(LoginInputField, "Jane Doe")
     userEvent.type(PasswordInputField, "adm1n")
     
     const button = screen.getByRole("button", { name: /Log In/i })
     userEvent.click(button)
-    // fireEvent.click(button)
-    // await waitFor(() => {
+ 
       await waitFor(()=>{
         expect(() => screen.getByText(/Your login data was incorrect./i)).toThrow('Unable to find an element');
       })
-    // });
+  
   })
 
 })
