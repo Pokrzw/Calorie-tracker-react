@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/calorie-tracker-react/static/css/main.991061d3.css",
+    "main.js": "/calorie-tracker-react/static/js/main.a2ed6a9a.js",
+    "static/js/787.755ba5ee.chunk.js": "/calorie-tracker-react/static/js/787.755ba5ee.chunk.js",
+    "index.html": "/calorie-tracker-react/index.html",
+    "main.991061d3.css.map": "/calorie-tracker-react/static/css/main.991061d3.css.map",
+    "main.a2ed6a9a.js.map": "/calorie-tracker-react/static/js/main.a2ed6a9a.js.map",
+    "787.755ba5ee.chunk.js.map": "/calorie-tracker-react/static/js/787.755ba5ee.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.991061d3.css",
+    "static/js/main.a2ed6a9a.js"
+  ]
+}
