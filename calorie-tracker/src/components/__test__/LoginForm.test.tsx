@@ -1,69 +1,90 @@
-import React, {FC} from 'react';
-import { render, screen, fireEvent, cleanup, getByText, act } from '@testing-library/react';
+import React, { FC, useState } from 'react';
+import { render, screen, fireEvent, cleanup, getByText, act, waitFor } from '@testing-library/react';
 import { Field } from 'formik';
 import LoginForm from '../LoginForm'
 import { BrowserRouter } from 'react-router-dom';
-import * as userEvent from '@testing-library/user-event';
+import * as router from 'react-router'
+import userEvent from '@testing-library/user-event';
 
 
 
-const mockedSetState = jest.fn();
 
-const MockLoginFormComponent:FC = () => {
-  return(
+const MockLoginFormComponent: FC = () => {
+  return (
     <BrowserRouter>
-      <LoginForm/>
+      <LoginForm />
     </BrowserRouter>
   )
 }
 
-
-beforeEach(()=>{
+beforeEach(() => {
   render(<MockLoginFormComponent/>)
 })
+
 
 afterEach(cleanup)
 
 
-
 describe("Text input fields", () => {
-  
-    test('Can put text into login input field', () => {
 
-      const LoginInputField = screen.getByLabelText('Login');
 
-      fireEvent.change(LoginInputField, {target: {innerText: "Lorem"}})
-      expect(LoginInputField.innerText).toBe("Lorem")
+  test('Can put text into login input field', () => {
 
-    })
+    const LoginInputField = screen.getByLabelText('Login');
 
-    test('Can put text into password input field', () => {
+    fireEvent.change(LoginInputField, { target: { innerText: "Lorem" } })
+    expect(LoginInputField.innerText).toBe("Lorem")
 
-      const PasswordInputField = screen.getByLabelText('Password');
-      
-      fireEvent.change(PasswordInputField, {target: {innerText: "Ipsum"}})
-      expect(PasswordInputField.innerText).toBe("Ipsum")
+  })
 
-    })
+  test('Can put text into password input field', () => {
+
+    const PasswordInputField = screen.getByLabelText('Password');
+
+    fireEvent.change(PasswordInputField, { target: { innerText: "Ipsum" } })
+    expect(PasswordInputField.innerText).toBe("Ipsum")
+
+  })
 })
 
-describe('Validation of login data',()=>{
-  test('Displays an error message with incorrect data',async () => {
+describe('Validation of login data', () => {
 
-
-    const user = userEvent.
+  test('Displays an error message with incorrect data', async () => {
     const LoginInputField = screen.getByLabelText('Login');
     const PasswordInputField = screen.getByLabelText('Password');
 
-    fireEvent.change(LoginInputField, {target: {innerText: "Lorem"}})
-    fireEvent.change(PasswordInputField, {target: {innerText: "Ipsum"}})
+    fireEvent.change(LoginInputField, { target: { innerText: "Lorem" } })
+    fireEvent.change(PasswordInputField, { target: { innerText: "Ipsum" } })
 
-    const button = screen.getByRole("button", {name: /Log In/i})
-    
-    // await user.click(button)
-    
-   
+    const button = screen.getByRole("button", { name: /Log In/i })
+
+    fireEvent.click(button)
+
+    await waitFor(() => {
+      expect(screen.getByText(/Your login data was incorrect./i)).toBeInTheDocument();
+    });
 
   })
+
+  test('Redirect to Home Page with valid data', async () => {
+    const checkVals = jest.fn();
+    const LoginInputField = screen.getByLabelText('Login');
+    const PasswordInputField = screen.getByLabelText('Password');
+
+    // fireEvent.change(LoginInputField, { target: { innerText: "Jane Doe" } })
+    // fireEvent.change(PasswordInputField, { target: { innerText: "adm1n" } })
+    userEvent.type(LoginInputField, "Jane Doe")
+    userEvent.type(PasswordInputField, "adm1n")
+    
+    const button = screen.getByRole("button", { name: /Log In/i })
+    userEvent.click(button)
+    // fireEvent.click(button)
+    // await waitFor(() => {
+      await waitFor(()=>{
+        expect(() => screen.getByText(/Your login data was incorrect./i)).toThrow('Unable to find an element');
+      })
+    // });
+  })
+
 })
 
