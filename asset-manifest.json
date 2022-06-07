@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Calorie-tracker-react/static/css/main.991061d3.css",
-    "main.js": "/Calorie-tracker-react/static/js/main.a9d39497.js",
-    "static/js/787.755ba5ee.chunk.js": "/Calorie-tracker-react/static/js/787.755ba5ee.chunk.js",
-    "index.html": "/Calorie-tracker-react/index.html",
-    "main.991061d3.css.map": "/Calorie-tracker-react/static/css/main.991061d3.css.map",
-    "main.a9d39497.js.map": "/Calorie-tracker-react/static/js/main.a9d39497.js.map",
-    "787.755ba5ee.chunk.js.map": "/Calorie-tracker-react/static/js/787.755ba5ee.chunk.js.map"
+    "main.css": "/calorie-tracker-react/static/css/main.d088584a.css",
+    "main.js": "/calorie-tracker-react/static/js/main.c48c6676.js",
+    "static/js/787.755ba5ee.chunk.js": "/calorie-tracker-react/static/js/787.755ba5ee.chunk.js",
+    "index.html": "/calorie-tracker-react/index.html",
+    "main.d088584a.css.map": "/calorie-tracker-react/static/css/main.d088584a.css.map",
+    "main.c48c6676.js.map": "/calorie-tracker-react/static/js/main.c48c6676.js.map",
+    "787.755ba5ee.chunk.js.map": "/calorie-tracker-react/static/js/787.755ba5ee.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.991061d3.css",
-    "static/js/main.a9d39497.js"
+    "static/css/main.d088584a.css",
+    "static/js/main.c48c6676.js"
   ]
 }
