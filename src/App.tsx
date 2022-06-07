@@ -10,6 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<LoginForm />} />
+        <Route path='/calorie-tracker-react' element={<LoginForm />} />
         <Route path='/home' element={<MainPage />} />
       </Routes>
     </BrowserRouter>

@@ -1,32 +1,39 @@
-.inset_shadow{
+$background_teal_gradient: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);
+
+
+.inset_shadow {
     -webkit-box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     -moz-box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 
-.out_shadow{
+.out_shadow {
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     -moz-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-
-.white_form_background{
+.white_form_styling {
     background-color: white;
     color: #08829b;
-    display: flex;
-    flex-direction: column;     
-    align-items: center;
     padding: 25px;
     border-radius: 20px;
+    @extend .out_shadow;
+}
+
+.white_form_background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @extend .white_form_styling;
     @extend .out_shadow;
 }
 
 
 
 
-.gray_input{
+.gray_input {
     @extend .inset_shadow;
     border: none;
     background-color: #EBE2E2;
@@ -37,35 +44,162 @@
     font-family: 'Inter', sans-serif;
     margin-bottom: 10px;
     width: 300px;
-    &:active{
+
+    &:active {
         border: none;
         outline: none;
     }
-    
+
 }
 
-.submit_button{
+.teal_gradient_styling {
     border: none;
     color: white;
-    @extend .gradient_background; 
-    @extend .out_shadow;  
+    @extend .gradient_background;
+    @extend .out_shadow;
     width: fit-content;
     font-family: 'Inter', sans-serif;
     padding: 10px 20px;
     font-weight: 600;
-    cursor: pointer;
+
     border-radius: 20px;
     transition: color .1s, background 2s;
     font-size: 15px;
-    
-    &:hover{
+}
+
+.submit_button {
+    @extend .teal_gradient_styling;
+    cursor: pointer;
+
+    &:hover {
         color: rgb(119, 33, 33);
-        background: #FF512F;  /* fallback for old browsers */        
+        background: #FF512F;
+        /* fallback for old browsers */
     }
 }
 
-.gradient_background{
-    background: #1CD8D2;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.gradient_background {
+    background: #1CD8D2;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93EDC7, #1CD8D2);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+.red_gradient_background {
+    background: #FF416C;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.MainPage {
+    background-color: #eceded;
+    height: 100vh;
+    display: flex;
+
+    .leftSide {
+        flex: 4;
+    }
+
+    .rightSide {
+        flex: 5;
+    }
+}
+
+.ProfileDetails {
+    width: fit-content;
+    margin: 50px;
+
+    .container {
+        display: flex;
+
+        .leftSide {
+            display: flex;
+            justify-content: center;
+
+            .profilePic {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                overflow: hidden;
+                @extend .out_shadow;
+                border: 10px #eceded solid;
+                margin-right: 20px;
+
+                img {
+                    height: 200px;
+                }
+            }
+
+        }
+
+        .rightSide {
+            .nameLabel {
+                .name {
+                    font-size: 25px;
+                    width: fit-content;
+
+                    .usersName {
+                        margin-left: 50px;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .weight {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                h1 {
+                    color: black;
+                    font-style: italic;
+                    margin-top: 50px;
+                    border-bottom: 2px #8e8e8e solid;
+                    padding: 3px 8px;
+                    margin-bottom: 0px;
+                }
+
+                p {
+                    margin-top: 2px;
+                    color: #8e8e8e;
+                    font-weight: 700;
+                }
+            }
+
+        }
+
+    }
+}
+
+.CalorieBreakdown {
+    margin: 50px;
+    .diagram {      
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        @extend .out_shadow;
+        
+    }
+    .white_circle{
+        background-color: white;
+        height: 95px;
+        width: 95px;
+        border-radius: 50%;
+        z-index: 100;
+        @extend .inset_shadow;
+        
+    }
+
+   
+    }
+    
+   
+    
