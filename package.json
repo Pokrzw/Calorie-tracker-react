@@ -2,7 +2,7 @@
   "name": "calorie-tracker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pokrzw.github.io/calorie-tracker-react",
+  "homepage": "https://pokrzw.github.io/Calorie-tracker-react",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
